@@ -1,12 +1,17 @@
 inventory = []
-def add_products(name,detail,unitMeasure,unitsAvailable,unitCost,cost,recipe):
+def add_products(product,detail,unitMeasure,unitsAvailable,unitCost,cost,recipe):
      pass
 def display_inventory():
      pass
 
 
-def add_products(name,detail,unitMeasure,unitsAvailable,unitCost,cost,recipe):
-  item={"name": name,
+def add_products(product,detail,unitMeasure,unitsAvailable,unitCost,cost,recipe):
+  for item in inventory:
+    if item['product']==product:
+      print(f"item: '{product}' does not exit")
+      return
+    
+  item={"product": product,
     "detail":detail,
     "unitMeasure":unitMeasure,
     "unitsAvailable":unitsAvailable,
@@ -14,8 +19,10 @@ def add_products(name,detail,unitMeasure,unitsAvailable,unitCost,cost,recipe):
     "cost": cost,
     "recipe":recipe}
   inventory.append(item)
+  print(f"item: '{product}' created")
   
-add_products("a", "b", "c", "d", "e","f",False)
+  
+add_products("Raw Flower", "b", "c", "d", "e","f",False)
 # print("Inventory", inventory)
 
 inventory=[
